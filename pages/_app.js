@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import Head from 'next/head'
 
+
 export default function App({ Component, pageProps }) {
   return <>
     <Head>
@@ -11,7 +12,7 @@ export default function App({ Component, pageProps }) {
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
-      <title>PREMIUM.DEV – Premium software development</title>
+      <title>PREMIUMWARE.DEV – Premium software development</title>
     </Head>
     <Component {...pageProps} />
   </>

@@ -1,7 +1,7 @@
 export default function Portfolio() {
     return (
-        <>
-         Portfolio
-        </>
+        <div className="bg-white">
+        Portfolio
+       </div>
     );
  }

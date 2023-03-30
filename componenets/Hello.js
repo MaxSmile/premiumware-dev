@@ -1,7 +1,7 @@
 export default function Hello() {
     return (
-        <>
-         Hello
-        </>
+        <div className="bg-white text-sky">
+        Hello
+       </div>
     );
  }

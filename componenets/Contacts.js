@@ -1,7 +1,7 @@
 export default function Contacts() {
     return (
-        <>
-         Contacts
-        </>
+        <div className="bg-black text-sky">
+            Contacts
+        </div>
     );
- }
+}

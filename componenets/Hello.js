@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Hover from 'react-3d-hover';
 
 export default function Hello() {
     return (
@@ -22,7 +23,9 @@ export default function Hello() {
 
 
                 <div>
-                    <Image src="/natalia.jpg" alt="Natalia Lebedieva" width={505} height={505} />
+                    <Hover>
+                        <Image src="/natalia.jpg" alt="Natalia Lebedieva" width={505} height={505} />
+                    </Hover>
                 </div>
 
             </div>

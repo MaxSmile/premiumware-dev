@@ -45,3 +45,18 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.shadow-hero {
+  filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.5));
+}
+
+
+.sticky-images {
+  position: sticky;
+  top: 20vh;
+  right: 20vw;
+  left: 20vw;
+  height: 80vh;
+  width: 300vw;
+}
+

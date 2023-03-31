@@ -16,7 +16,7 @@ export default function Hero() {
               <span class="animate-word-delay-2 col-span-full row-span-full">Branding</span>
             </div>
           </div>
-          <div class="h-full bg-hero invisible lg:visible"></div>
+          <div className="h-full bg-hero invisible lg:visible"></div>
       </div>
       <div className="bg-black text-white py-20 text-center flex items-center justify-center">
         <div className="lg:max-w-[50%] leading-relaxed text-2xl">

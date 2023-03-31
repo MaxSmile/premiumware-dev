@@ -6,14 +6,14 @@ export default function Hero() {
 
   return (
     <>
-      <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[90vh] items-center justify-center font-bold ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[90vh] items-center justify-center font-bold ">
         
-          <div class="text-center my-40 text-5xl font-semibold px-8 lg:px-20 leading-relaxed">
+          <div className="text-center my-40 text-5xl font-semibold px-8 lg:px-20 leading-relaxed">
             Our professional team will help you to create
-            <div class="relative inline-grid grid-cols-1 grid-rows-1 gap-12 overflow-hidden text-primary">
-              <span class="animate-word col-span-full row-span-full">Websites</span>
-              <span class="animate-word-delay-1 col-span-full row-span-full">Mobile Apps</span>
-              <span class="animate-word-delay-2 col-span-full row-span-full">Branding</span>
+            <div className="relative inline-grid grid-cols-1 grid-rows-1 gap-12 overflow-hidden text-primary">
+              <span className="animate-word col-span-full row-span-full">Websites</span>
+              <span className="animate-word-delay-1 col-span-full row-span-full">Mobile Apps</span>
+              <span className="animate-word-delay-2 col-span-full row-span-full">Branding</span>
             </div>
           </div>
           <div className="h-full bg-hero invisible lg:visible"></div>

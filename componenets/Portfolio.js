@@ -32,7 +32,7 @@ const projects = [
 
 export default function Portfolio() {
     const firstColumnRef = useRef(null);
-    const acel = .43;
+    const acel = .68;
     const shiftTop = 250;
     const portHeight = 680;
 
@@ -74,6 +74,8 @@ export default function Portfolio() {
                         //border: "1px solid #c33",
                         //height: `${portHeight}px`,
                     }}>
+                        <ReactWavePath id="path1" />
+                        <ReactWavePath id="path2" />
 
                         {projects.map((project, index) => {
                             if (index === 0) {
@@ -132,8 +134,7 @@ export default function Portfolio() {
                     ))}
                 </div>
             </div>
-            <ReactWavePath id="path1" />
-            <ReactWavePath id="path2" />
+            
         </div>
     );
 }

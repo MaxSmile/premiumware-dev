@@ -32,59 +32,110 @@ const projects = [
 
 export default function Portfolio() {
     const firstColumnRef = useRef(null);
-  
+    const acel = .43;
+    const shiftTop = 250;
+    const portHeight = 680;
+
     const handleScroll = () => {
-      const firstColumnRect = firstColumnRef.current.getBoundingClientRect();
-      const firstColumnTop = firstColumnRect.top + window.scrollY;
-      const firstColumnBottom = firstColumnTop + firstColumnRect.height;
-  
-      if (scrollY >= firstColumnTop && scrollY <= firstColumnBottom) {
-        const parallaxContainer = document.querySelector('.parallax-container');
-        parallaxContainer.style.transform = `translateY(${(firstColumnTop - scrollY) * 0.3}px)`;
-      }
+        let scrollY = window.scrollY;
+        const firstColumnRect = firstColumnRef.current.getBoundingClientRect();
+        const firstColumnTop = firstColumnRect.top;
+        const firstColumnBottom = firstColumnTop + firstColumnRect.height;
+
+        if (scrollY - shiftTop >= firstColumnTop && firstColumnTop + scrollY - shiftTop <= projects.length * portHeight) {
+            const parallaxContainer = document.querySelector('.parallax-container');
+            parallaxContainer.style.transform = `translateY(${(firstColumnTop - scrollY) * acel}px)`;
+            console.log('scrolling scrollY', scrollY, ">=", firstColumnTop, "<=", firstColumnBottom, 
+            (firstColumnTop+shiftTop*2 - scrollY) * acel);
+        } else {
+            console.log('not scrolling: scrollY !>= firstColumnTop', scrollY, firstColumnTop, firstColumnBottom);
+        }
     };
-  
+
     useEffect(() => {
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
-  
+
     return (
-      <div className="bg-white text-sky p-10 lg:p-40">
-        <div className="grid gap-y-10 gap-x-8 grid-cols-1 lg:grid-cols-2">
-          <div
-            ref={firstColumnRef}
-            className="w-full lg:w-1/2 lg:relative lg:h-screen lg:overflow-hidden"
-          >
-            <div className="parallax-container sticky-images">
-              <div
-                className="parallax-image"
-                style={{
-                  width: '300px',
-                  height: '285px',
-                  clipPath: 'url(#ReactWavePath)',
-                  backgroundImage: `url(${projects[0].img})`,
-                }}
-              ></div>
+        <div className="bg-white text-sky p-10 lg:p-40 ">
+            <div className="grid gap-y-10 gap-x-8 grid-cols-2">
+                <div ref={firstColumnRef}
+                    style={{ 
+                        //border: "1px solid #1c1", 
+                    position: "sticky", top: "calc(50% - 250px)" }}
+                    className={`w-full lg:relative h-[${portHeight}px] overflow-hidden`}>
+
+                    <div className="parallax-container overflow-hidden" style={{
+                        width: '100%',
+                        //border: "1px solid #c33",
+                        //height: `${portHeight}px`,
+                    }}>
+
+                        {projects.map((project, index) => {
+                            if (index === 0) {
+                                return (
+                                    <div key={index} className="parallax-image"
+                                        style={{
+                                            width: '100%',
+                                            height: `${portHeight}px`,
+                                            backgroundImage: `url(${project.img})`,
+                                            backgroundSize: 'cover',
+                                            backgroundPosition: 'center',
+                                            backgroundRepeat: 'no-repeat',
+
+                                        }}
+                                    ></div>);
+                            } else {
+                                if (index % 2 === 0) {
+                                    return (
+                                        <div key={index} className={'parallax-image -my-[80px] ml-'+(index)}
+                                            style={{
+                                                width: '100%',
+                                                height: `${portHeight}px`,
+                                                clipPath: 'url(#path1)',
+                                                backgroundImage: `url(${project.img})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center',
+                                                backgroundRepeat: 'no-repeat',
+                                            }}></div>);
+                                } else {
+                                    return (
+                                        <div key={index} className={'parallax-image -my-[80px] ml-'+(index)}
+                                            style={{
+                                                width: '100%',
+                                                height: `${portHeight}px`,
+                                                clipPath: 'url(#path2)',
+                                                backgroundImage: `url(${project.img})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center',
+                                                backgroundRepeat: 'no-repeat',
+                                            }}></div>);
+                                }
+                            }
+
+                        })}
+
+                    </div>
+                </div>
+
+                <div className="lg:ml-1/2 lg:pl-1/2">
+                    {projects.map((project, index) => (
+                        <div key={index} className="py-8 m-10">
+                            <div className="text-gray-500">{project.title}</div>
+                            <div className="text-4xl my-10">{project.subtitle}</div>
+                            <p className="leading-relax">{project.description}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
-          </div>
-  
-          <div className="lg:ml-1/2 lg:pl-1/2">
-            {projects.map((project, index) => (
-              <div key={index} className="py-8 m-10">
-                <div className="text-gray-500">{project.title}</div>
-                <div className="text-4xl my-10">{project.subtitle}</div>
-                <p className="leading-relax">{project.description}</p>
-              </div>
-            ))}
-          </div>
+            <ReactWavePath id="path1" />
+            <ReactWavePath id="path2" />
         </div>
-        <ReactWavePath />
-      </div>
     );
-  }
-  
+}
+
 

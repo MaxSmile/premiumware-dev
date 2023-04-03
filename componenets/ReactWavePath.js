@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const ReactWavePath = ({
-  frequency = 3,
+  frequency = 4,
   speed = 0.04,
   id = 'ReactWavePath',
 }) => {
@@ -9,7 +9,7 @@ const ReactWavePath = ({
   const initialWaveData = Array.from({ length: wavePoints }, (_, i) => ({
     t: (i / (wavePoints - 1)) * 2 * Math.PI,
     val: 0,
-    amplitude: 0.081 + Math.random() * 0.22,
+    amplitude: (0.081 + Math.random() * 0.42)/8,
   }));
 
   const [offset, setOffset] = useState(0);
@@ -35,12 +35,12 @@ const ReactWavePath = ({
   }, [speed, frequency, offset]);
 
   const getPath = () => {
-    const startPoint = { x: 0, y: 0.5 + waveData[0].val };
+    const startPoint = { x: 0, y: 0.05 + waveData[0].val };
     const pathData = [`M 0 0 L 0 ${startPoint.y}`];
 
     for (let i = 1; i < waveData.length - 1; i++) {
-      const currPoint = { x: i / (wavePoints - 1), y: 0.5 + waveData[i].val };
-      const nextPoint = { x: (i + 1) / (wavePoints - 1), y: 0.5 + waveData[i + 1].val };
+      const currPoint = { x: i / (wavePoints - 1), y: 0.05 + waveData[i].val };
+      const nextPoint = { x: (i + 1) / (wavePoints - 1), y: 0.05 + waveData[i + 1].val };
       const controlPoint = {
         x: (currPoint.x + nextPoint.x) / 2,
         y: (currPoint.y + nextPoint.y) / 2,

@@ -1,38 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## premiumware.dev / premiumware.top
+Premiumware Ltd (UK) marketing site built with Next.js. Public repo: https://github.com/MaxSmile/premiumware-dev
 
-## Getting Started
+### Purpose
+- Simple marketing/portfolio site with animated hero and parallax portfolio grid.
+- Reference example for keeping a company site open-source and agent-readable (MCP-friendly).
 
-First, run the development server:
+### Stack
+- Next.js 16 / React 19
+- Tailwind CSS 3
+- Alpine.js for some interactive utilities (if needed in future)
 
+### Quick start
 ```bash
+npm install --force   # required to bypass peer dep noise on React 19
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Scripts
+- `npm run dev` – start local dev server
+- `npm run build` – production build
+- `npm run start` – serve built app
+- `npm run lint` – run Next lint
+- `npm run build-patch|build-minor|build-major` – bump version, regenerate `version.js`, build
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Notes
+- Repo is intentionally public to make the company interface transparent and machine-consumable.
+- Tailwind config lives in `tailwind.config.js`; global styles in `styles/globals.css`.
+- Key pages/components are under `pages/` and `componenets/` (sic).
+- MCP schemas and examples live in `docs/mcp-schemas.md`, `mcp/schema/`, `mcp/examples/` for agent consumption.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Why open source (MCP angle)
+- We want Premiumware to be an AI-readable company profile, not just a marketing site; openness makes the data model auditable.
+- Serves as a reference pattern for MCP-ready companies (structure, exposure strategy, agent consumption).
+- Transparency builds machine trust: anyone can see what data agents ingest and how it is structured.
+- Open example others can fork for “company as structured data” playbooks.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Marketing snapshot (free to reuse)
+- “Premiumware Ltd’s site is open source to demonstrate how companies can expose structured truth to AI via MCP.”
+- “Premiumware is not just a website; it’s an open MCP business interface with a human UI.”
+- Positioning: AI-native, engineering-led, future-proofed for copilots, agents, procurement bots.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### TODO / roadmap
+- Define MCP schema for company identity (public vs. private layers).
+- Document agent access model and capability exposure.
+- Add versioning strategy for MCP surface.
+- Publish examples of services, team, projects as structured data.

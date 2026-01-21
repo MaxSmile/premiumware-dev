@@ -1,0 +1,80 @@
+{
+  "name": "Premiumware Ltd",
+  "brandTagline": "AI-native software squads with MCP transparency.",
+  "registrationNumber": "12887880",
+  "jurisdictions": ["United Kingdom", "Cyprus"],
+  "locations": [
+    {
+      "label": "UK",
+      "address": "20-22 Wenlock Road",
+      "city": "London",
+      "country": "England"
+    },
+    {
+      "label": "Cyprus",
+      "address": "Glastonos 12, 2nd Floor",
+      "city": "Paphos",
+      "country": "Cyprus"
+    }
+  ],
+  "website": "https://premiumware.dev",
+  "contacts": [
+    { "type": "phone", "label": "Phone", "value": "+357 99169229" },
+    { "type": "email", "label": "Sales", "value": "sp@premiumware.dev" },
+    { "type": "website", "label": "Site", "value": "https://premiumware.dev" }
+  ],
+  "services": [
+    {
+      "id": "service-web-mobile",
+      "name": "Web & Mobile Product Delivery",
+      "summary": "Cross-functional squads delivering design, frontend, backend, and cloud for web and mobile products.",
+      "outcomes": [
+        "Ship production-ready releases every sprint",
+        "Maintain reliability and performance SLAs",
+        "Leave behind documented systems and handover playbooks"
+      ],
+      "deliveryModels": ["dedicated squad", "pilot sprint", "team augmentation"],
+      "techStack": ["Next.js", "React Native", "Node.js", "PostgreSQL", "AWS"],
+      "pricingModel": "monthly squad rate with pilot option",
+      "cta": "Book a 30-minute intro"
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-garantex",
+      "name": "Crypto Wallet Platform",
+      "summary": "Delivered a secure crypto wallet with portfolio management and exchange flows.",
+      "industry": "Fintech / Crypto",
+      "techStack": ["React", "Next.js", "Node.js", "PostgreSQL"],
+      "timeline": "6 months",
+      "teamSize": "5 engineers + 1 designer",
+      "outcomes": [
+        "MVP shipped with audited smart contract integrations",
+        "Reduced onboarding friction with simplified KYC flow"
+      ],
+      "links": []
+    }
+  ],
+  "team": [
+    {
+      "id": "team-lead-frontend",
+      "name": "Lead Frontend Engineer",
+      "role": "Frontend Lead",
+      "timezone": "EET",
+      "skills": ["React", "Next.js", "TypeScript", "Tailwind", "Accessibility"],
+      "experience": "8+ years building production web apps and leading squads"
+    }
+  ],
+  "offers": [
+    {
+      "id": "offer-mcp-pilot",
+      "title": "MCP Pilot Sprint",
+      "summary": "Two-week sprint to expose your company data to AI agents with MCP-aligned payloads and a minimal UI.",
+      "priceModel": "fixed pilot fee",
+      "startingFrom": "USD 15k",
+      "cta": "Book a pilot planning call"
+    }
+  ],
+  "updatedAt": "2024-12-28T00:00:00Z",
+  "version": "0.1.1"
+}

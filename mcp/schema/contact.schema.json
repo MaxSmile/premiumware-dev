@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Contact Method",
+  "type": "object",
+  "required": ["type", "value"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["email", "phone", "website", "linkedin", "telegram", "x"]
+    },
+    "label": { "type": "string" },
+    "value": { "type": "string" }
+  }
+}

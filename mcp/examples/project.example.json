@@ -1,0 +1,14 @@
+{
+  "id": "project-garantex",
+  "name": "Crypto Wallet Platform",
+  "summary": "Delivered a secure crypto wallet with portfolio management and exchange flows.",
+  "industry": "Fintech / Crypto",
+  "techStack": ["React", "Next.js", "Node.js", "PostgreSQL"],
+  "timeline": "6 months",
+  "teamSize": "5 engineers + 1 designer",
+  "outcomes": [
+    "MVP shipped with audited smart contract integrations",
+    "Reduced onboarding friction with simplified KYC flow"
+  ],
+  "links": []
+}

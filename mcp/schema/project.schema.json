@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Project / Case Study",
+  "type": "object",
+  "required": ["id", "name", "summary", "outcomes"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "summary": { "type": "string" },
+    "industry": { "type": "string" },
+    "techStack": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "timeline": { "type": "string" },
+    "teamSize": { "type": "string" },
+    "outcomes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "links": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" }
+    }
+  }
+}

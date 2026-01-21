@@ -1,142 +1,83 @@
-import { useEffect, useRef, useState } from "react";
-import ReactWavePath from "./ReactWavePath";
-
-
 const projects = [
-    {
-        img: "/img1.jpeg",
-        title: "Garantex",
-        subtitle: "Garantex is a crypto wallet that allows you to manage your crypto portfolio.",
-        description: "The easiest & secure way to send, receive & exchange cryptocurrency. Control & manage your digital assets while you're on the move. Take full control of your tokens everywhere.",
-    },
-    {
-        img: "/img2.jpeg",
-        title: "Assistant",
-        subtitle: "Dashboard, assistant for every day, help you accomplish common tasks quickly.",
-        description: "A tone of bonuses are waiting for you! Earn bonuses with your friends, improve your gaming experience, and get exclusive items!",
-    },
-    {
-        img: "/img3.jpeg",
-        title: "Meditation app",
-        subtitle: "Meditation app that helps you to reach your goals.",
-        description: "You have many options - you can choose your favourite individual meditations, create a playlist, or even take a course consisting of meditations on the same topic. Whichever option you choose - with our meditations you will always be in a good mood, healthy, cheerful, and full of energy.",
-    },
-    {
-        img: "/img4.jpeg",
-        title: "Hydration app",
-        subtitle: "Hydration tracker and heart rate measurement mobile concept.",
-        description: "Connect with your body! You can check your heart rate during sports, physical activity and rest. Schedule a time to take your heart rate to be sure of your health.",
-    }
-
-]
+  {
+    img: "/img1.jpeg",
+    title: "Garantex",
+    subtitle: "Crypto wallet with portfolio management",
+    description:
+      "Shipped a secure wallet with exchange flows, audited integrations, and a streamlined KYC onboarding experience.",
+    tags: ["Fintech", "Crypto", "Next.js", "Node.js"],
+  },
+  {
+    img: "/img2.jpeg",
+    title: "Assistant Dashboard",
+    subtitle: "Everyday assistant dashboard",
+    description:
+      "Built a daily-assistant dashboard with gamified bonuses, notifications, and responsive UI across devices.",
+    tags: ["SaaS", "Dashboards", "Responsive UI"],
+  },
+  {
+    img: "/img3.jpeg",
+    title: "Meditation App",
+    subtitle: "Guided meditation playlists",
+    description:
+      "Designed and built a mobile-first meditation experience with playlists, courses, and progress tracking.",
+    tags: ["Mobile-first", "Content", "Engagement"],
+  },
+  {
+    img: "/img4.jpeg",
+    title: "Hydration Tracker",
+    subtitle: "Health tracking concept",
+    description:
+      "Concepted and prototyped a hydration and heart-rate tracker with friendly UX and clear health insights.",
+    tags: ["Health", "Mobile", "Prototype"],
+  },
+];
 
 export default function Portfolio() {
-    const firstColumnRef = useRef(null);
-    const acel = .68;
-    const shiftTop = 250;
-    const portHeight = 680;
+  return (
+    <section className="bg-slate-50 py-20 px-6 lg:px-16 xl:px-24" id="portfolio">
+      <div className="max-w-6xl mx-auto flex flex-col gap-4 mb-12" data-animate>
+        <p className="text-primary uppercase tracking-[0.2em] text-sm">Selected work</p>
+        <h2 className="text-3xl lg:text-4xl font-bold text-slate-900">Recent projects and prototypes.</h2>
+        <p className="text-slate-600 max-w-3xl">
+          Product delivery across web and mobile — pairing thoughtful UX with solid engineering so releases are
+          production-ready and easy to hand over.
+        </p>
+      </div>
 
-    const handleScroll = () => {
-        let scrollY = window.scrollY;
-        const firstColumnRect = firstColumnRef.current.getBoundingClientRect();
-        const firstColumnTop = firstColumnRect.top;
-        const firstColumnBottom = firstColumnTop + firstColumnRect.height;
-
-        if (scrollY - shiftTop >= firstColumnTop && firstColumnTop + scrollY - shiftTop <= projects.length * portHeight) {
-            const parallaxContainer = document.querySelector('.parallax-container');
-            parallaxContainer.style.transform = `translateY(${(firstColumnTop - scrollY) * acel}px)`;
-            console.log('scrolling scrollY', scrollY, ">=", firstColumnTop, "<=", firstColumnBottom, 
-            (firstColumnTop+shiftTop*2 - scrollY) * acel);
-        } else {
-            console.log('not scrolling: scrollY !>= firstColumnTop', scrollY, firstColumnTop, firstColumnBottom);
-        }
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    return (
-        <div className="bg-white text-sky p-10 lg:p-40 ">
-            <div className="grid gap-y-10 gap-x-8 grid-cols-2">
-                <div ref={firstColumnRef}
-                    style={{ 
-                        //border: "1px solid #1c1", 
-                    position: "sticky", top: "calc(50% - 250px)" }}
-                    className={`w-full lg:relative h-[${portHeight}px] overflow-hidden`}>
-
-                    <div className="parallax-container overflow-hidden" style={{
-                        width: '100%',
-                        //border: "1px solid #c33",
-                        //height: `${portHeight}px`,
-                    }}>
-                        <ReactWavePath id="path1" />
-                        <ReactWavePath id="path2" />
-
-                        {projects.map((project, index) => {
-                            if (index === 0) {
-                                return (
-                                    <div key={index} className="parallax-image"
-                                        style={{
-                                            width: '100%',
-                                            height: `${portHeight}px`,
-                                            backgroundImage: `url(${project.img})`,
-                                            backgroundSize: 'cover',
-                                            backgroundPosition: 'center',
-                                            backgroundRepeat: 'no-repeat',
-
-                                        }}
-                                    ></div>);
-                            } else {
-                                if (index % 2 === 0) {
-                                    return (
-                                        <div key={index} className={'parallax-image -my-[80px] ml-'+(index)}
-                                            style={{
-                                                width: '100%',
-                                                height: `${portHeight}px`,
-                                                clipPath: 'url(#path1)',
-                                                backgroundImage: `url(${project.img})`,
-                                                backgroundSize: 'cover',
-                                                backgroundPosition: 'center',
-                                                backgroundRepeat: 'no-repeat',
-                                            }}></div>);
-                                } else {
-                                    return (
-                                        <div key={index} className={'parallax-image -my-[80px] ml-'+(index)}
-                                            style={{
-                                                width: '100%',
-                                                height: `${portHeight}px`,
-                                                clipPath: 'url(#path2)',
-                                                backgroundImage: `url(${project.img})`,
-                                                backgroundSize: 'cover',
-                                                backgroundPosition: 'center',
-                                                backgroundRepeat: 'no-repeat',
-                                            }}></div>);
-                                }
-                            }
-
-                        })}
-
-                    </div>
-                </div>
-
-                <div className="lg:ml-1/2 lg:pl-1/2">
-                    {projects.map((project, index) => (
-                        <div key={index} className="py-8 m-10">
-                            <div className="text-gray-500">{project.title}</div>
-                            <div className="text-4xl my-10">{project.subtitle}</div>
-                            <p className="leading-relax">{project.description}</p>
-                        </div>
-                    ))}
-                </div>
+      <div className="max-w-6xl mx-auto grid gap-8 md:grid-cols-2">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            data-animate
+            data-animate-delay={index * 120}
+            className="group relative overflow-hidden rounded-3xl bg-white shadow-lg shadow-slate-200/60 border border-slate-100"
+          >
+            <div className="aspect-[4/3] overflow-hidden">
+              <img
+                src={project.img}
+                alt={project.title}
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
             </div>
-            
-        </div>
-    );
+            <div className="p-6 flex flex-col gap-3">
+              <div className="text-sm text-primary uppercase tracking-[0.2em]">{project.title}</div>
+              <div className="text-xl font-semibold text-slate-900">{project.subtitle}</div>
+              <p className="text-slate-600 text-sm leading-relaxed">{project.description}</p>
+              <div className="flex flex-wrap gap-2 pt-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
-
-

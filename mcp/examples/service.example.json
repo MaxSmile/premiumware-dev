@@ -1,0 +1,14 @@
+{
+  "id": "service-web-mobile",
+  "name": "Web & Mobile Product Delivery",
+  "summary": "Cross-functional squads delivering design, frontend, backend, and cloud for web and mobile products.",
+  "outcomes": [
+    "Ship production-ready releases every sprint",
+    "Maintain reliability and performance SLAs",
+    "Leave behind documented systems and handover playbooks"
+  ],
+  "deliveryModels": ["dedicated squad", "pilot sprint", "team augmentation"],
+  "techStack": ["Next.js", "React Native", "Node.js", "PostgreSQL", "AWS"],
+  "pricingModel": "monthly squad rate with pilot option",
+  "cta": "Book a 30-minute intro"
+}

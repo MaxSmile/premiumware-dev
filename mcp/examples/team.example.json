@@ -1,0 +1,8 @@
+{
+  "id": "team-lead-frontend",
+  "name": "Lead Frontend Engineer",
+  "role": "Frontend Lead",
+  "timezone": "EET",
+  "skills": ["React", "Next.js", "TypeScript", "Tailwind", "Accessibility"],
+  "experience": "8+ years building production web apps and leading squads"
+}

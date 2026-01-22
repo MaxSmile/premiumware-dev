@@ -1,22 +1,19 @@
-import Head from "next/head";
+import Layout from "@/_components/Layout";
+import PageHero from "@/_components/PageHero";
 
 const images = ["/img1.jpeg", "/img2.jpeg", "/img3.jpeg", "/img4.jpeg"];
 
 export default function GalleryPage() {
   return (
-    <>
-      <Head>
-        <title>Gallery | Premiumware</title>
-        <meta name="description" content="Gallery of Premiumware design and product snapshots." />
-      </Head>
-
-      <section className="bg-slate-900 text-white pt-36 pb-16 px-6 lg:px-16 xl:px-24">
-        <div className="max-w-5xl mx-auto flex flex-col gap-4" data-animate>
-          <p className="text-primary uppercase tracking-[0.2em] text-sm">Gallery</p>
-          <h1 className="text-3xl lg:text-4xl font-bold">Snapshots of our work</h1>
-          <p className="text-slate-200 leading-relaxed">Design and product visuals from recent projects and concepts.</p>
-        </div>
-      </section>
+    <Layout
+      title="Gallery | Premiumware"
+      description="Gallery of Premiumware design and product snapshots."
+    >
+      <PageHero
+        eyebrow="Gallery"
+        title="Snapshots of our work"
+        description="Design and product visuals from recent projects and concepts."
+      />
 
       <section className="bg-white py-16 px-6 lg:px-16 xl:px-24">
         <div className="max-w-6xl mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -32,6 +29,6 @@ export default function GalleryPage() {
           ))}
         </div>
       </section>
-    </>
+    </Layout>
   );
 }
